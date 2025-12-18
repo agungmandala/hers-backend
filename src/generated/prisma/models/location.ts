@@ -50,6 +50,7 @@ export type LocationMinAggregateOutputType = {
   longitude: runtime.Decimal | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type LocationMaxAggregateOutputType = {
@@ -66,6 +67,7 @@ export type LocationMaxAggregateOutputType = {
   longitude: runtime.Decimal | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type LocationCountAggregateOutputType = {
@@ -82,6 +84,7 @@ export type LocationCountAggregateOutputType = {
   longitude: number
   createdAt: number
   updatedAt: number
+  deletedAt: number
   _all: number
 }
 
@@ -110,6 +113,7 @@ export type LocationMinAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type LocationMaxAggregateInputType = {
@@ -126,6 +130,7 @@ export type LocationMaxAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type LocationCountAggregateInputType = {
@@ -142,6 +147,7 @@ export type LocationCountAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
   _all?: true
 }
 
@@ -245,6 +251,7 @@ export type LocationGroupByOutputType = {
   longitude: runtime.Decimal
   createdAt: Date
   updatedAt: Date
+  deletedAt: Date | null
   _count: LocationCountAggregateOutputType | null
   _avg: LocationAvgAggregateOutputType | null
   _sum: LocationSumAggregateOutputType | null
@@ -284,6 +291,7 @@ export type locationWhereInput = {
   longitude?: Prisma.DecimalFilter<"location"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFilter<"location"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"location"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"location"> | Date | string | null
 }
 
 export type locationOrderByWithRelationInput = {
@@ -300,6 +308,7 @@ export type locationOrderByWithRelationInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _relevance?: Prisma.locationOrderByRelevanceInput
 }
 
@@ -320,6 +329,7 @@ export type locationWhereUniqueInput = Prisma.AtLeast<{
   longitude?: Prisma.DecimalFilter<"location"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFilter<"location"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"location"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"location"> | Date | string | null
 }, "id">
 
 export type locationOrderByWithAggregationInput = {
@@ -336,6 +346,7 @@ export type locationOrderByWithAggregationInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.locationCountOrderByAggregateInput
   _avg?: Prisma.locationAvgOrderByAggregateInput
   _max?: Prisma.locationMaxOrderByAggregateInput
@@ -360,6 +371,7 @@ export type locationScalarWhereWithAggregatesInput = {
   longitude?: Prisma.DecimalWithAggregatesFilter<"location"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"location"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"location"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"location"> | Date | string | null
 }
 
 export type locationCreateInput = {
@@ -376,6 +388,7 @@ export type locationCreateInput = {
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type locationUncheckedCreateInput = {
@@ -392,6 +405,7 @@ export type locationUncheckedCreateInput = {
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type locationUpdateInput = {
@@ -408,6 +422,7 @@ export type locationUpdateInput = {
   longitude?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type locationUncheckedUpdateInput = {
@@ -424,6 +439,7 @@ export type locationUncheckedUpdateInput = {
   longitude?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type locationCreateManyInput = {
@@ -440,6 +456,7 @@ export type locationCreateManyInput = {
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type locationUpdateManyMutationInput = {
@@ -456,6 +473,7 @@ export type locationUpdateManyMutationInput = {
   longitude?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type locationUncheckedUpdateManyInput = {
@@ -472,6 +490,7 @@ export type locationUncheckedUpdateManyInput = {
   longitude?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type locationOrderByRelevanceInput = {
@@ -494,6 +513,7 @@ export type locationCountOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type locationAvgOrderByAggregateInput = {
@@ -515,6 +535,7 @@ export type locationMaxOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type locationMinOrderByAggregateInput = {
@@ -531,6 +552,7 @@ export type locationMinOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type locationSumOrderByAggregateInput = {
@@ -582,6 +604,7 @@ export type locationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  deletedAt?: boolean
 }, ExtArgs["result"]["location"]>
 
 
@@ -600,9 +623,10 @@ export type locationSelectScalar = {
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  deletedAt?: boolean
 }
 
-export type locationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "address" | "phone" | "email" | "isActive" | "openTime" | "closeTime" | "isStore" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["location"]>
+export type locationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "address" | "phone" | "email" | "isActive" | "openTime" | "closeTime" | "isStore" | "latitude" | "longitude" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["location"]>
 
 export type $locationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "location"
@@ -621,6 +645,7 @@ export type $locationPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     longitude: runtime.Decimal
     createdAt: Date
     updatedAt: Date
+    deletedAt: Date | null
   }, ExtArgs["result"]["location"]>
   composites: {}
 }
@@ -1003,6 +1028,7 @@ export interface locationFieldRefs {
   readonly longitude: Prisma.FieldRef<"location", 'Decimal'>
   readonly createdAt: Prisma.FieldRef<"location", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"location", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"location", 'DateTime'>
 }
     
 

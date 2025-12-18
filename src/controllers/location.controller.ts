@@ -60,3 +60,52 @@ export const createLocation = asyncHandler(
     })
   }
 )
+
+export const updateLocation = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { id } = req.params
+    const {
+      name,
+      address,
+      phone,
+      email,
+      isActive,
+      openTime,
+      closeTime,
+      isStore,
+      latitude,
+      longitude,
+    } = req.body
+
+    const location = await LocationService.update(id, {
+      name,
+      address,
+      phone,
+      email,
+      isActive,
+      openTime,
+      closeTime,
+      isStore,
+      latitude,
+      longitude,
+    })
+
+    res.status(201).json({
+      success: true,
+      data: location,
+    })
+  }
+)
+
+export const deleteLocation = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const location = await LocationService.delete(id)
+
+    res.status(201).json({
+      success: true,
+      data: location,
+    })
+  }
+)

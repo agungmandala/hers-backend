@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  location: 'location'
+  location: 'location',
+  jobPosition: 'jobPosition'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -83,10 +84,24 @@ export const LocationScalarFieldEnum = {
   latitude: 'latitude',
   longitude: 'longitude',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
 } as const
 
 export type LocationScalarFieldEnum = (typeof LocationScalarFieldEnum)[keyof typeof LocationScalarFieldEnum]
+
+
+export const JobPositionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type JobPositionScalarFieldEnum = (typeof JobPositionScalarFieldEnum)[keyof typeof JobPositionScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -114,4 +129,13 @@ export const locationOrderByRelevanceFieldEnum = {
 } as const
 
 export type locationOrderByRelevanceFieldEnum = (typeof locationOrderByRelevanceFieldEnum)[keyof typeof locationOrderByRelevanceFieldEnum]
+
+
+export const jobPositionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description'
+} as const
+
+export type jobPositionOrderByRelevanceFieldEnum = (typeof jobPositionOrderByRelevanceFieldEnum)[keyof typeof jobPositionOrderByRelevanceFieldEnum]
 

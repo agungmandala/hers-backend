@@ -42,3 +42,8 @@ export { Prisma }
  * 
  */
 export type location = Prisma.locationModel
+/**
+ * Model jobPosition
+ * 
+ */
+export type jobPosition = Prisma.jobPositionModel
