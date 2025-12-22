@@ -385,7 +385,11 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   location: 'location',
-  jobPosition: 'jobPosition'
+  jobPosition: 'jobPosition',
+  user: 'user',
+  userDetail: 'userDetail',
+  employeeInfo: 'employeeInfo',
+  userJobPosition: 'userJobPosition'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -401,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "location" | "jobPosition"
+    modelProps: "location" | "jobPosition" | "user" | "userDetail" | "employeeInfo" | "userJobPosition"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -537,6 +541,270 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    user: {
+      payload: Prisma.$userPayload<ExtArgs>
+      fields: Prisma.userFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.userFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.userFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        findFirst: {
+          args: Prisma.userFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.userFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        findMany: {
+          args: Prisma.userFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>[]
+        }
+        create: {
+          args: Prisma.userCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        createMany: {
+          args: Prisma.userCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.userDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        update: {
+          args: Prisma.userUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        deleteMany: {
+          args: Prisma.userDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.userUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.userUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        aggregate: {
+          args: Prisma.UserAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUser>
+        }
+        groupBy: {
+          args: Prisma.userGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.userCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number
+        }
+      }
+    }
+    userDetail: {
+      payload: Prisma.$userDetailPayload<ExtArgs>
+      fields: Prisma.userDetailFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.userDetailFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.userDetailFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        findFirst: {
+          args: Prisma.userDetailFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.userDetailFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        findMany: {
+          args: Prisma.userDetailFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>[]
+        }
+        create: {
+          args: Prisma.userDetailCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        createMany: {
+          args: Prisma.userDetailCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.userDetailDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        update: {
+          args: Prisma.userDetailUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        deleteMany: {
+          args: Prisma.userDetailDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.userDetailUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.userDetailUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userDetailPayload>
+        }
+        aggregate: {
+          args: Prisma.UserDetailAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserDetail>
+        }
+        groupBy: {
+          args: Prisma.userDetailGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserDetailGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.userDetailCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserDetailCountAggregateOutputType> | number
+        }
+      }
+    }
+    employeeInfo: {
+      payload: Prisma.$employeeInfoPayload<ExtArgs>
+      fields: Prisma.employeeInfoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.employeeInfoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.employeeInfoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        findFirst: {
+          args: Prisma.employeeInfoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.employeeInfoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        findMany: {
+          args: Prisma.employeeInfoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>[]
+        }
+        create: {
+          args: Prisma.employeeInfoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        createMany: {
+          args: Prisma.employeeInfoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.employeeInfoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        update: {
+          args: Prisma.employeeInfoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        deleteMany: {
+          args: Prisma.employeeInfoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.employeeInfoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.employeeInfoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$employeeInfoPayload>
+        }
+        aggregate: {
+          args: Prisma.EmployeeInfoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEmployeeInfo>
+        }
+        groupBy: {
+          args: Prisma.employeeInfoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EmployeeInfoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.employeeInfoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EmployeeInfoCountAggregateOutputType> | number
+        }
+      }
+    }
+    userJobPosition: {
+      payload: Prisma.$userJobPositionPayload<ExtArgs>
+      fields: Prisma.userJobPositionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.userJobPositionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.userJobPositionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        findFirst: {
+          args: Prisma.userJobPositionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.userJobPositionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        findMany: {
+          args: Prisma.userJobPositionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>[]
+        }
+        create: {
+          args: Prisma.userJobPositionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        createMany: {
+          args: Prisma.userJobPositionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.userJobPositionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        update: {
+          args: Prisma.userJobPositionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        deleteMany: {
+          args: Prisma.userJobPositionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.userJobPositionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.userJobPositionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userJobPositionPayload>
+        }
+        aggregate: {
+          args: Prisma.UserJobPositionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserJobPosition>
+        }
+        groupBy: {
+          args: Prisma.userJobPositionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserJobPositionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.userJobPositionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserJobPositionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -609,12 +877,84 @@ export const JobPositionScalarFieldEnum = {
 export type JobPositionScalarFieldEnum = (typeof JobPositionScalarFieldEnum)[keyof typeof JobPositionScalarFieldEnum]
 
 
+export const UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  username: 'username',
+  password: 'password',
+  isActive: 'isActive',
+  permission: 'permission',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const UserDetailScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  phoneNumber: 'phoneNumber',
+  ktpPhoto: 'ktpPhoto',
+  nikKtp: 'nikKtp',
+  photo: 'photo',
+  address: 'address',
+  dateOfBirth: 'dateOfBirth',
+  placeOfBirth: 'placeOfBirth',
+  gender: 'gender',
+  religion: 'religion',
+  educationalBackground: 'educationalBackground',
+  maritalStatus: 'maritalStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserDetailScalarFieldEnum = (typeof UserDetailScalarFieldEnum)[keyof typeof UserDetailScalarFieldEnum]
+
+
+export const EmployeeInfoScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  employeeStatus: 'employeeStatus',
+  locationId: 'locationId',
+  dateOfEntry: 'dateOfEntry',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  annualLeave: 'annualLeave',
+  resignationDate: 'resignationDate',
+  resignationReason: 'resignationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EmployeeInfoScalarFieldEnum = (typeof EmployeeInfoScalarFieldEnum)[keyof typeof EmployeeInfoScalarFieldEnum]
+
+
+export const UserJobPositionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  jobPositionId: 'jobPositionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserJobPositionScalarFieldEnum = (typeof UserJobPositionScalarFieldEnum)[keyof typeof UserJobPositionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const NullsOrder = {
@@ -643,6 +983,71 @@ export const jobPositionOrderByRelevanceFieldEnum = {
 } as const
 
 export type jobPositionOrderByRelevanceFieldEnum = (typeof jobPositionOrderByRelevanceFieldEnum)[keyof typeof jobPositionOrderByRelevanceFieldEnum]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const userOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  username: 'username',
+  password: 'password'
+} as const
+
+export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
+
+
+export const userDetailOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  phoneNumber: 'phoneNumber',
+  ktpPhoto: 'ktpPhoto',
+  nikKtp: 'nikKtp',
+  photo: 'photo',
+  address: 'address',
+  placeOfBirth: 'placeOfBirth',
+  gender: 'gender',
+  religion: 'religion',
+  educationalBackground: 'educationalBackground',
+  maritalStatus: 'maritalStatus'
+} as const
+
+export type userDetailOrderByRelevanceFieldEnum = (typeof userDetailOrderByRelevanceFieldEnum)[keyof typeof userDetailOrderByRelevanceFieldEnum]
+
+
+export const employeeInfoOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  employeeStatus: 'employeeStatus',
+  locationId: 'locationId',
+  resignationReason: 'resignationReason'
+} as const
+
+export type employeeInfoOrderByRelevanceFieldEnum = (typeof employeeInfoOrderByRelevanceFieldEnum)[keyof typeof employeeInfoOrderByRelevanceFieldEnum]
+
+
+export const userJobPositionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  jobPositionId: 'jobPositionId'
+} as const
+
+export type userJobPositionOrderByRelevanceFieldEnum = (typeof userJobPositionOrderByRelevanceFieldEnum)[keyof typeof userJobPositionOrderByRelevanceFieldEnum]
 
 
 
@@ -680,9 +1085,30 @@ export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 /**
@@ -782,6 +1208,10 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   location?: Prisma.locationOmit
   jobPosition?: Prisma.jobPositionOmit
+  user?: Prisma.userOmit
+  userDetail?: Prisma.userDetailOmit
+  employeeInfo?: Prisma.employeeInfoOmit
+  userJobPosition?: Prisma.userJobPositionOmit
 }
 
 /* Types for Logging */

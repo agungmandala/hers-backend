@@ -27,3 +27,23 @@ export type location = Prisma.locationModel
  * 
  */
 export type jobPosition = Prisma.jobPositionModel
+/**
+ * Model user
+ * 
+ */
+export type user = Prisma.userModel
+/**
+ * Model userDetail
+ * 
+ */
+export type userDetail = Prisma.userDetailModel
+/**
+ * Model employeeInfo
+ * 
+ */
+export type employeeInfo = Prisma.employeeInfoModel
+/**
+ * Model userJobPosition
+ * 
+ */
+export type userJobPosition = Prisma.userJobPositionModel

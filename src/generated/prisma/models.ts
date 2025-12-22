@@ -10,4 +10,8 @@
  */
 export type * from './models/location'
 export type * from './models/jobPosition'
+export type * from './models/user'
+export type * from './models/userDetail'
+export type * from './models/employeeInfo'
+export type * from './models/userJobPosition'
 export type * from './commonInputTypes'

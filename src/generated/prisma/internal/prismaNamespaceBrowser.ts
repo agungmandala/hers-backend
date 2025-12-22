@@ -52,7 +52,11 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   location: 'location',
-  jobPosition: 'jobPosition'
+  jobPosition: 'jobPosition',
+  user: 'user',
+  userDetail: 'userDetail',
+  employeeInfo: 'employeeInfo',
+  userJobPosition: 'userJobPosition'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -104,12 +108,84 @@ export const JobPositionScalarFieldEnum = {
 export type JobPositionScalarFieldEnum = (typeof JobPositionScalarFieldEnum)[keyof typeof JobPositionScalarFieldEnum]
 
 
+export const UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  username: 'username',
+  password: 'password',
+  isActive: 'isActive',
+  permission: 'permission',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const UserDetailScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  phoneNumber: 'phoneNumber',
+  ktpPhoto: 'ktpPhoto',
+  nikKtp: 'nikKtp',
+  photo: 'photo',
+  address: 'address',
+  dateOfBirth: 'dateOfBirth',
+  placeOfBirth: 'placeOfBirth',
+  gender: 'gender',
+  religion: 'religion',
+  educationalBackground: 'educationalBackground',
+  maritalStatus: 'maritalStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserDetailScalarFieldEnum = (typeof UserDetailScalarFieldEnum)[keyof typeof UserDetailScalarFieldEnum]
+
+
+export const EmployeeInfoScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  employeeStatus: 'employeeStatus',
+  locationId: 'locationId',
+  dateOfEntry: 'dateOfEntry',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  annualLeave: 'annualLeave',
+  resignationDate: 'resignationDate',
+  resignationReason: 'resignationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EmployeeInfoScalarFieldEnum = (typeof EmployeeInfoScalarFieldEnum)[keyof typeof EmployeeInfoScalarFieldEnum]
+
+
+export const UserJobPositionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  jobPositionId: 'jobPositionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserJobPositionScalarFieldEnum = (typeof UserJobPositionScalarFieldEnum)[keyof typeof UserJobPositionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: 'JsonNull'
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const NullsOrder = {
@@ -138,4 +214,69 @@ export const jobPositionOrderByRelevanceFieldEnum = {
 } as const
 
 export type jobPositionOrderByRelevanceFieldEnum = (typeof jobPositionOrderByRelevanceFieldEnum)[keyof typeof jobPositionOrderByRelevanceFieldEnum]
+
+
+export const JsonNullValueFilter = {
+  DbNull: 'DbNull',
+  JsonNull: 'JsonNull',
+  AnyNull: 'AnyNull'
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const userOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  username: 'username',
+  password: 'password'
+} as const
+
+export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
+
+
+export const userDetailOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  phoneNumber: 'phoneNumber',
+  ktpPhoto: 'ktpPhoto',
+  nikKtp: 'nikKtp',
+  photo: 'photo',
+  address: 'address',
+  placeOfBirth: 'placeOfBirth',
+  gender: 'gender',
+  religion: 'religion',
+  educationalBackground: 'educationalBackground',
+  maritalStatus: 'maritalStatus'
+} as const
+
+export type userDetailOrderByRelevanceFieldEnum = (typeof userDetailOrderByRelevanceFieldEnum)[keyof typeof userDetailOrderByRelevanceFieldEnum]
+
+
+export const employeeInfoOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  employeeStatus: 'employeeStatus',
+  locationId: 'locationId',
+  resignationReason: 'resignationReason'
+} as const
+
+export type employeeInfoOrderByRelevanceFieldEnum = (typeof employeeInfoOrderByRelevanceFieldEnum)[keyof typeof employeeInfoOrderByRelevanceFieldEnum]
+
+
+export const userJobPositionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  jobPositionId: 'jobPositionId'
+} as const
+
+export type userJobPositionOrderByRelevanceFieldEnum = (typeof userJobPositionOrderByRelevanceFieldEnum)[keyof typeof userJobPositionOrderByRelevanceFieldEnum]
 

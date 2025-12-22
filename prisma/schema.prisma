@@ -14,30 +14,99 @@ datasource db {
 }
 
 model location {
-  id        String    @id @default(cuid())
-  name      String
-  address   String?
-  phone     String?
-  email     String?
-  isActive  Boolean   @map("is_active")
-  openTime  DateTime? @map("open_time")
-  closeTime DateTime? @map("close_time")
-  isStore   Boolean   @default(false) @map("is_store")
-  latitude  Decimal   @default(0) @db.Decimal(11, 7)
-  longitude Decimal   @default(0) @db.Decimal(11, 7)
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
+  id            String         @id @default(cuid())
+  name          String
+  address       String?
+  phone         String?
+  email         String?
+  isActive      Boolean        @map("is_active")
+  openTime      DateTime?      @map("open_time")
+  closeTime     DateTime?      @map("close_time")
+  isStore       Boolean        @default(false) @map("is_store")
+  latitude      Decimal        @default(0) @db.Decimal(11, 7)
+  longitude     Decimal        @default(0) @db.Decimal(11, 7)
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  deletedAt     DateTime?      @map("deleted_at")
+  employeeInfos employeeInfo[]
 }
 
 model jobPosition {
-  id          String    @id @default(cuid())
-  name        String
-  description String?
-  isActive    Boolean   @map("is_active")
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt @map("updated_at")
-  deletedAt   DateTime? @map("deleted_at")
+  id               String            @id @default(cuid())
+  name             String
+  description      String?
+  isActive         Boolean           @map("is_active")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  deletedAt        DateTime?         @map("deleted_at")
+  userJobPositions userJobPosition[]
 
   @@map("job_position")
+}
+
+model user {
+  id               String            @id @default(cuid())
+  name             String
+  username         String
+  password         String
+  isActive         Boolean           @default(true) @map("is_active")
+  permission       Json              @db.Json
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  deletedAt        DateTime?         @map("deleted_at")
+  userDetail       userDetail?
+  employeeInfo     employeeInfo?
+  userJobPositions userJobPosition[]
+}
+
+model userDetail {
+  id                    String    @id @default(cuid())
+  userId                String    @unique @map("user_id")
+  phoneNumber           String?   @map("phone_number")
+  ktpPhoto              String?   @map("ktp_photo")
+  nikKtp                String?   @map("nik_ktp")
+  photo                 String?
+  address               String?
+  dateOfBirth           DateTime? @map("date_of_birth") @db.Date
+  placeOfBirth          String?   @map("place_of_birth")
+  gender                String?
+  religion              String?
+  educationalBackground String?   @map("educational_background")
+  maritalStatus         String?   @map("marital_status")
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @updatedAt @map("updated_at")
+  user                  user      @relation(fields: [userId], references: [id])
+
+  @@map("user_detail")
+}
+
+model employeeInfo {
+  id                String    @id @default(cuid())
+  userId            String    @unique @map("user_id")
+  employeeStatus    String    @map("employee_status")
+  locationId        String    @map("location_id")
+  dateOfEntry       DateTime? @map("date_of_entry") @db.Date
+  startDate         DateTime? @map("start_date") @db.Date
+  endDate           DateTime? @map("end_date") @db.Date
+  annualLeave       Int       @default(0) @map("annual_leave")
+  resignationDate   DateTime? @map("resignation_date") @db.Date
+  resignationReason String?   @map("resignation_reason") @db.Text
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  user              user      @relation(fields: [userId], references: [id])
+  location          location  @relation(fields: [locationId], references: [id])
+
+  @@map("employee_info")
+}
+
+model userJobPosition {
+  id            String      @id @default(cuid())
+  userId        String      @map("user_id")
+  jobPositionId String      @map("job_position_id")
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  user          user        @relation(fields: [userId], references: [id])
+  jobPosition   jobPosition @relation(fields: [jobPositionId], references: [id])
+
+  @@map("user_job_position")
 }
