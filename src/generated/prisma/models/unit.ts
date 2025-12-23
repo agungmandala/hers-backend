@@ -190,6 +190,7 @@ export type unitWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"unit"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"unit"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"unit"> | Date | string | null
+  products?: Prisma.ProductListRelationFilter
 }
 
 export type unitOrderByWithRelationInput = {
@@ -199,6 +200,7 @@ export type unitOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  products?: Prisma.productOrderByRelationAggregateInput
   _relevance?: Prisma.unitOrderByRelevanceInput
 }
 
@@ -212,6 +214,7 @@ export type unitWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"unit"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"unit"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"unit"> | Date | string | null
+  products?: Prisma.ProductListRelationFilter
 }, "id">
 
 export type unitOrderByWithAggregationInput = {
@@ -245,6 +248,7 @@ export type unitCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  products?: Prisma.productCreateNestedManyWithoutUnitInput
 }
 
 export type unitUncheckedCreateInput = {
@@ -254,6 +258,7 @@ export type unitUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  products?: Prisma.productUncheckedCreateNestedManyWithoutUnitInput
 }
 
 export type unitUpdateInput = {
@@ -263,6 +268,7 @@ export type unitUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  products?: Prisma.productUpdateManyWithoutUnitNestedInput
 }
 
 export type unitUncheckedUpdateInput = {
@@ -272,6 +278,7 @@ export type unitUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  products?: Prisma.productUncheckedUpdateManyWithoutUnitNestedInput
 }
 
 export type unitCreateManyInput = {
@@ -334,6 +341,108 @@ export type unitMinOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
 }
 
+export type UnitNullableScalarRelationFilter = {
+  is?: Prisma.unitWhereInput | null
+  isNot?: Prisma.unitWhereInput | null
+}
+
+export type unitCreateNestedOneWithoutProductsInput = {
+  create?: Prisma.XOR<Prisma.unitCreateWithoutProductsInput, Prisma.unitUncheckedCreateWithoutProductsInput>
+  connectOrCreate?: Prisma.unitCreateOrConnectWithoutProductsInput
+  connect?: Prisma.unitWhereUniqueInput
+}
+
+export type unitUpdateOneWithoutProductsNestedInput = {
+  create?: Prisma.XOR<Prisma.unitCreateWithoutProductsInput, Prisma.unitUncheckedCreateWithoutProductsInput>
+  connectOrCreate?: Prisma.unitCreateOrConnectWithoutProductsInput
+  upsert?: Prisma.unitUpsertWithoutProductsInput
+  disconnect?: Prisma.unitWhereInput | boolean
+  delete?: Prisma.unitWhereInput | boolean
+  connect?: Prisma.unitWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.unitUpdateToOneWithWhereWithoutProductsInput, Prisma.unitUpdateWithoutProductsInput>, Prisma.unitUncheckedUpdateWithoutProductsInput>
+}
+
+export type unitCreateWithoutProductsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type unitUncheckedCreateWithoutProductsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type unitCreateOrConnectWithoutProductsInput = {
+  where: Prisma.unitWhereUniqueInput
+  create: Prisma.XOR<Prisma.unitCreateWithoutProductsInput, Prisma.unitUncheckedCreateWithoutProductsInput>
+}
+
+export type unitUpsertWithoutProductsInput = {
+  update: Prisma.XOR<Prisma.unitUpdateWithoutProductsInput, Prisma.unitUncheckedUpdateWithoutProductsInput>
+  create: Prisma.XOR<Prisma.unitCreateWithoutProductsInput, Prisma.unitUncheckedCreateWithoutProductsInput>
+  where?: Prisma.unitWhereInput
+}
+
+export type unitUpdateToOneWithWhereWithoutProductsInput = {
+  where?: Prisma.unitWhereInput
+  data: Prisma.XOR<Prisma.unitUpdateWithoutProductsInput, Prisma.unitUncheckedUpdateWithoutProductsInput>
+}
+
+export type unitUpdateWithoutProductsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type unitUncheckedUpdateWithoutProductsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+
+/**
+ * Count Type UnitCountOutputType
+ */
+
+export type UnitCountOutputType = {
+  products: number
+}
+
+export type UnitCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  products?: boolean | UnitCountOutputTypeCountProductsArgs
+}
+
+/**
+ * UnitCountOutputType without action
+ */
+export type UnitCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UnitCountOutputType
+   */
+  select?: Prisma.UnitCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UnitCountOutputType without action
+ */
+export type UnitCountOutputTypeCountProductsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.productWhereInput
+}
 
 
 export type unitSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -343,6 +452,8 @@ export type unitSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  products?: boolean | Prisma.unit$productsArgs<ExtArgs>
+  _count?: boolean | Prisma.UnitCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["unit"]>
 
 
@@ -357,10 +468,16 @@ export type unitSelectScalar = {
 }
 
 export type unitOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["unit"]>
+export type unitInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  products?: boolean | Prisma.unit$productsArgs<ExtArgs>
+  _count?: boolean | Prisma.UnitCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $unitPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "unit"
-  objects: {}
+  objects: {
+    products: Prisma.$productPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
@@ -708,6 +825,7 @@ readonly fields: unitFieldRefs;
  */
 export interface Prisma__unitClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  products<T extends Prisma.unit$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.unit$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$productPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -760,6 +878,10 @@ export type unitFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * Filter, which unit to fetch.
    */
   where: Prisma.unitWhereUniqueInput
@@ -778,6 +900,10 @@ export type unitFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * Filter, which unit to fetch.
    */
   where: Prisma.unitWhereUniqueInput
@@ -795,6 +921,10 @@ export type unitFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the unit
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
   /**
    * Filter, which unit to fetch.
    */
@@ -844,6 +974,10 @@ export type unitFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * Filter, which unit to fetch.
    */
   where?: Prisma.unitWhereInput
@@ -892,6 +1026,10 @@ export type unitFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * Filter, which units to fetch.
    */
   where?: Prisma.unitWhereInput
@@ -935,6 +1073,10 @@ export type unitCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * The data needed to create a unit.
    */
   data: Prisma.XOR<Prisma.unitCreateInput, Prisma.unitUncheckedCreateInput>
@@ -963,6 +1105,10 @@ export type unitUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the unit
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
   /**
    * The data needed to update a unit.
    */
@@ -1004,6 +1150,10 @@ export type unitUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * The filter to search for the unit to update in case it exists.
    */
   where: Prisma.unitWhereUniqueInput
@@ -1030,6 +1180,10 @@ export type unitDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
+  /**
    * Filter which unit to delete.
    */
   where: Prisma.unitWhereUniqueInput
@@ -1050,6 +1204,30 @@ export type unitDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * unit.products
+ */
+export type unit$productsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the product
+   */
+  select?: Prisma.productSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the product
+   */
+  omit?: Prisma.productOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.productInclude<ExtArgs> | null
+  where?: Prisma.productWhereInput
+  orderBy?: Prisma.productOrderByWithRelationInput | Prisma.productOrderByWithRelationInput[]
+  cursor?: Prisma.productWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
  * unit without action
  */
 export type unitDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1061,4 +1239,8 @@ export type unitDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the unit
    */
   omit?: Prisma.unitOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.unitInclude<ExtArgs> | null
 }
