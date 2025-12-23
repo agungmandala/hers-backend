@@ -198,6 +198,7 @@ export type categoryStockWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"categoryStock"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"categoryStock"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"categoryStock"> | Date | string | null
+  categoryProducts?: Prisma.CategoryProductListRelationFilter
 }
 
 export type categoryStockOrderByWithRelationInput = {
@@ -208,6 +209,7 @@ export type categoryStockOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  categoryProducts?: Prisma.categoryProductOrderByRelationAggregateInput
   _relevance?: Prisma.categoryStockOrderByRelevanceInput
 }
 
@@ -222,6 +224,7 @@ export type categoryStockWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"categoryStock"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"categoryStock"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"categoryStock"> | Date | string | null
+  categoryProducts?: Prisma.CategoryProductListRelationFilter
 }, "id">
 
 export type categoryStockOrderByWithAggregationInput = {
@@ -258,6 +261,7 @@ export type categoryStockCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  categoryProducts?: Prisma.categoryProductCreateNestedManyWithoutCategoryStockInput
 }
 
 export type categoryStockUncheckedCreateInput = {
@@ -268,6 +272,7 @@ export type categoryStockUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  categoryProducts?: Prisma.categoryProductUncheckedCreateNestedManyWithoutCategoryStockInput
 }
 
 export type categoryStockUpdateInput = {
@@ -278,6 +283,7 @@ export type categoryStockUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryProducts?: Prisma.categoryProductUpdateManyWithoutCategoryStockNestedInput
 }
 
 export type categoryStockUncheckedUpdateInput = {
@@ -288,6 +294,7 @@ export type categoryStockUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryProducts?: Prisma.categoryProductUncheckedUpdateManyWithoutCategoryStockNestedInput
 }
 
 export type categoryStockCreateManyInput = {
@@ -356,6 +363,110 @@ export type categoryStockMinOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
 }
 
+export type CategoryStockScalarRelationFilter = {
+  is?: Prisma.categoryStockWhereInput
+  isNot?: Prisma.categoryStockWhereInput
+}
+
+export type categoryStockCreateNestedOneWithoutCategoryProductsInput = {
+  create?: Prisma.XOR<Prisma.categoryStockCreateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedCreateWithoutCategoryProductsInput>
+  connectOrCreate?: Prisma.categoryStockCreateOrConnectWithoutCategoryProductsInput
+  connect?: Prisma.categoryStockWhereUniqueInput
+}
+
+export type categoryStockUpdateOneRequiredWithoutCategoryProductsNestedInput = {
+  create?: Prisma.XOR<Prisma.categoryStockCreateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedCreateWithoutCategoryProductsInput>
+  connectOrCreate?: Prisma.categoryStockCreateOrConnectWithoutCategoryProductsInput
+  upsert?: Prisma.categoryStockUpsertWithoutCategoryProductsInput
+  connect?: Prisma.categoryStockWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.categoryStockUpdateToOneWithWhereWithoutCategoryProductsInput, Prisma.categoryStockUpdateWithoutCategoryProductsInput>, Prisma.categoryStockUncheckedUpdateWithoutCategoryProductsInput>
+}
+
+export type categoryStockCreateWithoutCategoryProductsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  type?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type categoryStockUncheckedCreateWithoutCategoryProductsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  type?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type categoryStockCreateOrConnectWithoutCategoryProductsInput = {
+  where: Prisma.categoryStockWhereUniqueInput
+  create: Prisma.XOR<Prisma.categoryStockCreateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedCreateWithoutCategoryProductsInput>
+}
+
+export type categoryStockUpsertWithoutCategoryProductsInput = {
+  update: Prisma.XOR<Prisma.categoryStockUpdateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedUpdateWithoutCategoryProductsInput>
+  create: Prisma.XOR<Prisma.categoryStockCreateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedCreateWithoutCategoryProductsInput>
+  where?: Prisma.categoryStockWhereInput
+}
+
+export type categoryStockUpdateToOneWithWhereWithoutCategoryProductsInput = {
+  where?: Prisma.categoryStockWhereInput
+  data: Prisma.XOR<Prisma.categoryStockUpdateWithoutCategoryProductsInput, Prisma.categoryStockUncheckedUpdateWithoutCategoryProductsInput>
+}
+
+export type categoryStockUpdateWithoutCategoryProductsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type categoryStockUncheckedUpdateWithoutCategoryProductsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+
+/**
+ * Count Type CategoryStockCountOutputType
+ */
+
+export type CategoryStockCountOutputType = {
+  categoryProducts: number
+}
+
+export type CategoryStockCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  categoryProducts?: boolean | CategoryStockCountOutputTypeCountCategoryProductsArgs
+}
+
+/**
+ * CategoryStockCountOutputType without action
+ */
+export type CategoryStockCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CategoryStockCountOutputType
+   */
+  select?: Prisma.CategoryStockCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * CategoryStockCountOutputType without action
+ */
+export type CategoryStockCountOutputTypeCountCategoryProductsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.categoryProductWhereInput
+}
 
 
 export type categoryStockSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -366,6 +477,8 @@ export type categoryStockSelect<ExtArgs extends runtime.Types.Extensions.Interna
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  categoryProducts?: boolean | Prisma.categoryStock$categoryProductsArgs<ExtArgs>
+  _count?: boolean | Prisma.CategoryStockCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["categoryStock"]>
 
 
@@ -381,10 +494,16 @@ export type categoryStockSelectScalar = {
 }
 
 export type categoryStockOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "type" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["categoryStock"]>
+export type categoryStockInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  categoryProducts?: boolean | Prisma.categoryStock$categoryProductsArgs<ExtArgs>
+  _count?: boolean | Prisma.CategoryStockCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $categoryStockPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "categoryStock"
-  objects: {}
+  objects: {
+    categoryProducts: Prisma.$categoryProductPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
@@ -733,6 +852,7 @@ readonly fields: categoryStockFieldRefs;
  */
 export interface Prisma__categoryStockClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  categoryProducts<T extends Prisma.categoryStock$categoryProductsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.categoryStock$categoryProductsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$categoryProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -786,6 +906,10 @@ export type categoryStockFindUniqueArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * Filter, which categoryStock to fetch.
    */
   where: Prisma.categoryStockWhereUniqueInput
@@ -804,6 +928,10 @@ export type categoryStockFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Ext
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * Filter, which categoryStock to fetch.
    */
   where: Prisma.categoryStockWhereUniqueInput
@@ -821,6 +949,10 @@ export type categoryStockFindFirstArgs<ExtArgs extends runtime.Types.Extensions.
    * Omit specific fields from the categoryStock
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
   /**
    * Filter, which categoryStock to fetch.
    */
@@ -870,6 +1002,10 @@ export type categoryStockFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Exte
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * Filter, which categoryStock to fetch.
    */
   where?: Prisma.categoryStockWhereInput
@@ -918,6 +1054,10 @@ export type categoryStockFindManyArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * Filter, which categoryStocks to fetch.
    */
   where?: Prisma.categoryStockWhereInput
@@ -961,6 +1101,10 @@ export type categoryStockCreateArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * The data needed to create a categoryStock.
    */
   data: Prisma.XOR<Prisma.categoryStockCreateInput, Prisma.categoryStockUncheckedCreateInput>
@@ -989,6 +1133,10 @@ export type categoryStockUpdateArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the categoryStock
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
   /**
    * The data needed to update a categoryStock.
    */
@@ -1030,6 +1178,10 @@ export type categoryStockUpsertArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * The filter to search for the categoryStock to update in case it exists.
    */
   where: Prisma.categoryStockWhereUniqueInput
@@ -1056,6 +1208,10 @@ export type categoryStockDeleteArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
+  /**
    * Filter which categoryStock to delete.
    */
   where: Prisma.categoryStockWhereUniqueInput
@@ -1076,6 +1232,30 @@ export type categoryStockDeleteManyArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
+ * categoryStock.categoryProducts
+ */
+export type categoryStock$categoryProductsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the categoryProduct
+   */
+  select?: Prisma.categoryProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the categoryProduct
+   */
+  omit?: Prisma.categoryProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryProductInclude<ExtArgs> | null
+  where?: Prisma.categoryProductWhereInput
+  orderBy?: Prisma.categoryProductOrderByWithRelationInput | Prisma.categoryProductOrderByWithRelationInput[]
+  cursor?: Prisma.categoryProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CategoryProductScalarFieldEnum | Prisma.CategoryProductScalarFieldEnum[]
+}
+
+/**
  * categoryStock without action
  */
 export type categoryStockDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1087,4 +1267,8 @@ export type categoryStockDefaultArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the categoryStock
    */
   omit?: Prisma.categoryStockOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.categoryStockInclude<ExtArgs> | null
 }
