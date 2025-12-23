@@ -7,6 +7,7 @@ import sessionRoutes from "./session.route"
 import categoryStockRoutes from "./categoryStock.route"
 import categoryProductRoutes from "./categoryProduct.route"
 import unitRoutes from "./unit.route"
+import productRoutes from "./product.route"
 
 const router = Router()
 
@@ -20,5 +21,6 @@ router.use("/sessions", sessionRoutes)
 router.use("/category-stocks", categoryStockRoutes)
 router.use("/category-products", categoryProductRoutes)
 router.use("/units", unitRoutes)
+router.use("/products", productRoutes)
 
 export default router
