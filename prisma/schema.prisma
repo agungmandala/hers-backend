@@ -137,3 +137,12 @@ model categoryProduct {
 
   @@map("category_product")
 }
+
+model unit {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+}

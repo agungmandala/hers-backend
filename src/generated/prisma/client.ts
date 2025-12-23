@@ -77,3 +77,8 @@ export type categoryStock = Prisma.categoryStockModel
  * 
  */
 export type categoryProduct = Prisma.categoryProductModel
+/**
+ * Model unit
+ * 
+ */
+export type unit = Prisma.unitModel
