@@ -67,3 +67,8 @@ export type employeeInfo = Prisma.employeeInfoModel
  * 
  */
 export type userJobPosition = Prisma.userJobPositionModel
+/**
+ * Model categoryStock
+ * 
+ */
+export type categoryStock = Prisma.categoryStockModel

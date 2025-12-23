@@ -56,7 +56,8 @@ export const ModelName = {
   user: 'user',
   userDetail: 'userDetail',
   employeeInfo: 'employeeInfo',
-  userJobPosition: 'userJobPosition'
+  userJobPosition: 'userJobPosition',
+  categoryStock: 'categoryStock'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -173,6 +174,19 @@ export const UserJobPositionScalarFieldEnum = {
 export type UserJobPositionScalarFieldEnum = (typeof UserJobPositionScalarFieldEnum)[keyof typeof UserJobPositionScalarFieldEnum]
 
 
+export const CategoryStockScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type CategoryStockScalarFieldEnum = (typeof CategoryStockScalarFieldEnum)[keyof typeof CategoryStockScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -279,4 +293,14 @@ export const userJobPositionOrderByRelevanceFieldEnum = {
 } as const
 
 export type userJobPositionOrderByRelevanceFieldEnum = (typeof userJobPositionOrderByRelevanceFieldEnum)[keyof typeof userJobPositionOrderByRelevanceFieldEnum]
+
+
+export const categoryStockOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type'
+} as const
+
+export type categoryStockOrderByRelevanceFieldEnum = (typeof categoryStockOrderByRelevanceFieldEnum)[keyof typeof categoryStockOrderByRelevanceFieldEnum]
 

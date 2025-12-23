@@ -389,7 +389,8 @@ export const ModelName = {
   user: 'user',
   userDetail: 'userDetail',
   employeeInfo: 'employeeInfo',
-  userJobPosition: 'userJobPosition'
+  userJobPosition: 'userJobPosition',
+  categoryStock: 'categoryStock'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "location" | "jobPosition" | "user" | "userDetail" | "employeeInfo" | "userJobPosition"
+    modelProps: "location" | "jobPosition" | "user" | "userDetail" | "employeeInfo" | "userJobPosition" | "categoryStock"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -805,6 +806,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    categoryStock: {
+      payload: Prisma.$categoryStockPayload<ExtArgs>
+      fields: Prisma.categoryStockFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.categoryStockFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.categoryStockFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        findFirst: {
+          args: Prisma.categoryStockFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.categoryStockFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        findMany: {
+          args: Prisma.categoryStockFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>[]
+        }
+        create: {
+          args: Prisma.categoryStockCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        createMany: {
+          args: Prisma.categoryStockCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.categoryStockDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        update: {
+          args: Prisma.categoryStockUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        deleteMany: {
+          args: Prisma.categoryStockDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.categoryStockUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.categoryStockUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$categoryStockPayload>
+        }
+        aggregate: {
+          args: Prisma.CategoryStockAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCategoryStock>
+        }
+        groupBy: {
+          args: Prisma.categoryStockGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryStockGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.categoryStockCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryStockCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -942,6 +1009,19 @@ export const UserJobPositionScalarFieldEnum = {
 export type UserJobPositionScalarFieldEnum = (typeof UserJobPositionScalarFieldEnum)[keyof typeof UserJobPositionScalarFieldEnum]
 
 
+export const CategoryStockScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type CategoryStockScalarFieldEnum = (typeof CategoryStockScalarFieldEnum)[keyof typeof CategoryStockScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1048,6 +1128,16 @@ export const userJobPositionOrderByRelevanceFieldEnum = {
 } as const
 
 export type userJobPositionOrderByRelevanceFieldEnum = (typeof userJobPositionOrderByRelevanceFieldEnum)[keyof typeof userJobPositionOrderByRelevanceFieldEnum]
+
+
+export const categoryStockOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type'
+} as const
+
+export type categoryStockOrderByRelevanceFieldEnum = (typeof categoryStockOrderByRelevanceFieldEnum)[keyof typeof categoryStockOrderByRelevanceFieldEnum]
 
 
 
@@ -1212,6 +1302,7 @@ export type GlobalOmitConfig = {
   userDetail?: Prisma.userDetailOmit
   employeeInfo?: Prisma.employeeInfoOmit
   userJobPosition?: Prisma.userJobPositionOmit
+  categoryStock?: Prisma.categoryStockOmit
 }
 
 /* Types for Logging */
